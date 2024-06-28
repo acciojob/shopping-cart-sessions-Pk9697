@@ -59,12 +59,13 @@ function removeFromCart(productId) {
 	shoppingCartProducts.push(...filteredProducts)
 	renderCart()
 }
-
-
+   
+ 
 // Clear cart
 function clearCart() {
 	shoppingCartProducts.length=0
 	renderCart()
+	localStorage.removeItem('cart')
 }
 
 clearCartBtn.addEventListener('click',clearCart)
