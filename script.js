@@ -10,13 +10,13 @@ const products = [
 ];
       
 const shoppingCartProducts=[]
-if(localStorage.getItem('cart')){
-	const savedCartProducts=JSON.parse(localStorage.getItem('cart'))
+if(sessionStorage.getItem('cart')){
+	const savedCartProducts=JSON.parse(sessionStorage.getItem('cart'))
 	if(savedCartProducts){
 		shoppingCartProducts.push(...savedCartProducts)
 	}
 }
-
+   
 // DOM elements
 const productList = document.getElementById("product-list");
 const cartList = document.getElementById("cart-list");
@@ -42,7 +42,7 @@ function renderCart() {
 		`
 	}).join(' ')
 
-	localStorage.setItem('cart',JSON.stringify(shoppingCartProducts))
+	sessionStorage.setItem('cart',JSON.stringify(shoppingCartProducts))
 }
  
 // Add item to cart
@@ -65,7 +65,7 @@ function removeFromCart(productId) {
 function clearCart() {
 	shoppingCartProducts.length=0
 	renderCart()
-	localStorage.removeItem('cart')
+	sessionStorage.removeItem('cart')
 }
 
 clearCartBtn.addEventListener('click',clearCart)
