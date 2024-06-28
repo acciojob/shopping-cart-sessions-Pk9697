@@ -9,6 +9,14 @@ const products = [
   { id: 5, name: "Product 5", price: 50 },
 ];
 
+const shoppingCartProducts=[]
+if(localStorage.getItem('cart')){
+	const savedCartProducts=JSON.parse(localStorage.getItem('cart'))
+	if(savedCartProducts){
+		shoppingCartProducts.push(...savedCartProducts)
+	}
+}
+
 // DOM elements
 const productList = document.getElementById("product-list");
 
